@@ -1,0 +1,14 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  }
+
+  ion-content {
+    --background: var(--ion-color-dark);
+  }
+
+ion-card{
+  border: 10px;;
+}
