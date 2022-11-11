@@ -5,10 +5,28 @@
   height: 100%;
   }
 
-  ion-content {
-    --background: var(--ion-color-dark);
-  }
 
-ion-card{
-  border: 10px;;
+p{
+  font-size: 10px;;
+  color:black;
+}
+
+ion-content {
+  --background: var(--ion-color-dark);
+}
+
+ion-card-title{
+  text-align: center;
+}
+
+.card-label{
+font-size: 15px;
+
+color: black;
+}
+
+ion-icon{
+
+  font-size: 25px;
+  margin-left: 20px;
 }

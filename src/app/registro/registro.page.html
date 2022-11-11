@@ -1,24 +1,67 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color ="dark">
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <hr>
+  <ion-icon color="light" name="arrow-back-outline" routerLink="/tabs/tab1"></ion-icon>
   <div class ="flex-center">
 
     <ion-card>
       <ion-card-header>
-        <ion-card-title>
-          REGISTRO
-        </ion-card-title>
+        <ion-card-title>Registrar</ion-card-title>
       </ion-card-header>
 
+      <ion-card-content>
 
 
+
+
+          <ion-label class = "card-label" >Nome Completo:</ion-label>
+          <ion-card class = "card2">
+          <ion-input placeholder="Entre com seu nome" type="text"></ion-input>
+        </ion-card>
+
+
+        <ion-label class = "card-label" >CPF:</ion-label>
+        <ion-card class = "card2">
+        <ion-input placeholder="Entre com seu CPF:" type="number"></ion-input>
+      </ion-card>
+
+        <ion-label class = "card-label" >Nascimento:</ion-label>
+        <ion-card class = "card2">
+        <ion-input placeholder="Entre com a Data de Nascimento:" type="date"></ion-input>
+      </ion-card>
+
+
+
+      <ion-label class = "card-label" >Email:</ion-label>
+      <ion-card class = "card2">
+      <ion-input placeholder="Entre com seu Email" type="email"></ion-input>
+    </ion-card>
+
+
+    <ion-label class = "card-label" >Senha:</ion-label>
+    <ion-card class = "card2">
+    <ion-input placeholder="Entre com sua senha" type="password"></ion-input>
+  </ion-card>
+
+  <ion-label class = "card-label" >Confirmação de senha:</ion-label>
+    <ion-card class = "card2">
+    <ion-input placeholder="Confirme sua senha" type="password"></ion-input>
+  </ion-card>
+
+
+
+
+<ion-button color="medium" size="full">CRIAR</ion-button>
+
+
+    </ion-card-content>
     </ion-card>
   </div>
-
 
 
 </ion-content>
