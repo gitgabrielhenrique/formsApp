@@ -3,13 +3,9 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
   }
 
-
-p{
-  font-size: 10px;;
-  color:black;
-}
 
 ion-content {
   --background: var(--ion-color-dark);
@@ -19,11 +15,6 @@ ion-card-title{
   text-align: center;
 }
 
-.card-label{
-font-size: 15px;
-
-color: black;
-}
 
 ion-icon{
 
