@@ -1,5 +1,9 @@
+import { Storage } from '@ionic/storage-angular';
+import { StorageService } from './../services/storage.service';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Usuario } from '../models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -9,14 +13,15 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegistroPage implements OnInit {
 
   formCadastro: FormGroup;
+  usuario: Usuario = new Usuario();
 
-  mensgaens = {
+  mensagens = {
     nome: [
       {tipo:'required', mensagem:'O Campo Nome é Obrigatório'},
       {tipo:'minlength', mensagem: 'O campo Nome precisa ter pelo menos 3 caracteres!'}
     ],
     cpf:[
-      {tipo:'required', mensagem: 'O campo CPF é obrigatório"'}
+      {tipo:'required', mensagem: 'O campo CPF é obrigatório.'}
     ],
     email: [
       { tipo: 'required', mensagem: 'O campo E-mail é obrigatório.' },
@@ -34,7 +39,8 @@ export class RegistroPage implements OnInit {
     ],
   };
 
-  constructor(private formBuilder: FormBuilder) { this.formCadastro = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder, private storageService: StorageService, private route: Router)
+{ this.formCadastro = this.formBuilder.group({
       nome: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       cpf: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
@@ -46,8 +52,17 @@ export class RegistroPage implements OnInit {
   ngOnInit() {
   }
 
-  salvarCadastro() {
-    console.log('Formulário: ', this.formCadastro.valid);
+  async salvarCadastro() {
+    if(this.formCadastro.valid){
+      this.usuario.nome = this.formCadastro.value.nome;
+      this.usuario.cpf = this.formCadastro.value.cpf;
+      this.usuario.email = this.formCadastro.value.email;
+      this.usuario.senha = this.formCadastro.value.senha;
+      await this.storageService.set(this.usuario.email, this.usuario);
+      this.route.navigateByUrl('/home');
+    } else {
+      alert('Formulário Inválido!');
+    }
   }
 
 }

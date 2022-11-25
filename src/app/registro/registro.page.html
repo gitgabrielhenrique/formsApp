@@ -1,62 +1,99 @@
 <ion-header>
-  <ion-toolbar color ="dark">
+  <ion-toolbar color="dark">
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <hr>
-  <ion-icon color="light" name="arrow-back-outline" routerLink="/tabs/tab1"></ion-icon>
-  <div class ="flex-center">
-
-    <form [formGroup]="formCadastro">
+  <hr />
+  <ion-icon
+    color="light"
+    name="arrow-back-outline"
+    routerLink="/tabs/tab1"
+  ></ion-icon>
+  <div class="flex-center">
     <ion-card>
       <ion-card-header>
         <ion-card-title>Registrar</ion-card-title>
       </ion-card-header>
 
-
       <ion-card-content>
-
+        <form [formGroup]="formCadastro">
           <ion-item>
-          <ion-label class = "card-label" position="floating" >Nome</ion-label>
-          <ion-input formControlName="nome"></ion-input>
-
+            <ion-label class="card-label" position="floating">Nome</ion-label>
+            <ion-input formControlName="nome"></ion-input>
+            <ng-container *ngFor="let erro of mensagens.nome">
+              <span
+                class="msg-erro"
+                *ngIf="formCadastro.get('nome').hasError(erro.tipo) && (formCadastro.get('nome').dirty || formCadastro.get('nome').touched)"
+              >
+                {{erro.mensagem}}
+              </span>
+            </ng-container>
           </ion-item>
 
+          <ion-item>
+            <ion-label class="card-label" position="floating">CPF</ion-label>
+            <ion-input formControlName="cpf"></ion-input>
+            <ng-container *ngFor="let erro of mensagens.cpf">
+              <span
+                class="msg-erro"
+                *ngIf="formCadastro.get('cpf').hasError(erro.tipo) && (formCadastro.get('cpf').dirty || formCadastro.get('cpf').touched)"
+              >
+                {{erro.mensagem}}
+              </span>
+            </ng-container>
+          </ion-item>
 
           <ion-item>
-        <ion-label class = "card-label" position="floating" >CPF</ion-label>
-        <ion-input formControlName="cpf"></ion-input>
-      </ion-item>
+            <ion-label class="card-label" position="floating">Email</ion-label>
+            <ion-input formControlName="email"></ion-input>
+            <ng-container *ngFor="let erro of mensagens.email">
+              <span
+                class="msg-erro"
+                *ngIf="formCadastro.get('email').hasError(erro.tipo) && (formCadastro.get('email').dirty || formCadastro.get('email').touched)"
+              >
+                {{erro.mensagem}}
+              </span>
+            </ng-container>
+          </ion-item>
 
+          <ion-item>
+            <ion-label class="card-label" position="floating">Senha</ion-label>
+            <ion-input type="password" formControlName="senha"></ion-input>
+            <ng-container *ngFor="let erro of mensagens.senha">
+              <span
+                class="msg-erro"
+                *ngIf="formCadastro.get('senha').hasError(erro.tipo) && (formCadastro.get('senha').dirty || formCadastro.get('senha').touched)"
+              >
+                {{erro.mensagem}}
+              </span>
+            </ng-container>
+          </ion-item>
 
-      <ion-item>
-      <ion-label class = "card-label" position="floating">Email</ion-label>
-      <ion-input formControlName="email"></ion-input>
-    </ion-item>
+          <ion-item>
+            <ion-label class="card-label" position="floating"
+              >Confirmação de senha</ion-label
+            >
+            <ion-input
+              type="password"
+              formControlName="confirmaSenha"
+            ></ion-input>
+            <ng-container *ngFor="let erro of mensagens.confirmaSenha">
+              <span
+                class="msg-erro"
+                *ngIf="formCadastro.get('confirmaSenha').hasError(erro.tipo) && (formCadastro.get('confirmaSenha').dirty || formCadastro.get('confirmaSenha').touched)"
+              >
+                {{erro.mensagem}}
+              </span>
+            </ng-container>
+          </ion-item>
 
-  <ion-item>
-    <ion-label class = "card-label" position="floating">Senha</ion-label>
-    <ion-input type="password" formControlName="senha"></ion-input>
-  </ion-item>
+          <br />
 
-<ion-item>
-  <ion-label class = "card-label" position="floating">Confirmação de senha</ion-label>
-  <ion-input type="password" formControlName="confirmaSenha"></ion-input>
-</ion-item>
-
-
-
-<br>
-
-<ion-button size="full" (click) = "salvarCadastro()">SALVAR</ion-button>
-
-
-    </ion-card-content>
+          <ion-button size="full" (click)="salvarCadastro()">SALVAR</ion-button>
+        </form>
+      </ion-card-content>
     </ion-card>
-  </form>
   </div>
-
-
 </ion-content>
