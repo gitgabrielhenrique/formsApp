@@ -1,36 +1,51 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-title>
-      Forms
+Página Inicial
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button color="dark" routerLink="/login">
+
+
+  <div class="ion-text-center">
+<ion-card>
+  <ion-card-header>
+    <img alt="Silhouette of mountains" src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4Fd9x?ver=4725" />
+
+    <ion-card-title style="font-family: fantasy">Comece Agora</ion-card-title>
+
+    <ion-card-subtitle>Selecione uma das Opções Abaixo</ion-card-subtitle>
+   </ion-card-header>
+<ion-card-content>
+      <ion-button fill="clear">
+        <ion-item routerLink="/login">
           Fazer Login
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button color="dark" routerLink="/registro">
-          Fazer Registro
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button color="dark" routerLink="/produto">
-          Cadastrar Produto
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        </ion-item>
+
+     </ion-button>
+
+
+
+
+  <ion-button fill="clear">
+    <ion-item routerLink="/registro">
+      Fazer Registro
+    </ion-item>
+
+ </ion-button>
+ <ion-button fill="clear">
+  <ion-item routerLink="/produto">
+    cadastrar produto
+  </ion-item>
+
+</ion-button>
+
+</ion-card-content>
+</ion-card>
+</div>
 
 
   <ion-item-sliding *ngFor="let user of listaUsuarios">

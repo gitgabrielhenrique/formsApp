@@ -1,40 +1,75 @@
 <ion-header>
-  <ion-toolbar color = "dark">
-    <ion-title>Login</ion-title>
+  <ion-toolbar>
+
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content>
-  <hr>
-  <ion-icon color="light" name="arrow-back-outline" routerLink="/tabs/tab1"></ion-icon>
-  <div class ="flex-center">
+<form [formGroup]="formLogin">
+  <div class="ion-text-center">
 
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-card-header>
+      <ion-card-title>user</ion-card-title>
+      <ion-card-subtitle>login</ion-card-subtitle>
+    </ion-card-header>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Login</ion-card-title>
-      </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>email:</ion-label>
+              <ion-input formControlName="email"></ion-input>
+              <ng-container *ngFor="let erro of mensagens.email">
+                <span
+                  class="msg-erro"
+                  *ngIf="formLogin.get('email').hasError(erro.tipo) && (formLogin.get('email').dirty || formLogin.get('email').touched)"
+                >
+                  {{erro.mensagem}}
+                </span>
+              </ng-container>
+            </ion-item>
+          </ion-col>
 
-      <ion-card-content>
+        </ion-row>
+        <ion-row>
 
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
+          <ion-col>
+            <ion-item>
+              <ion-label>senha:</ion-label>
+              <ion-input formControlName="senha"></ion-input>
+              <ng-container *ngFor="let erro of mensagens.senha">
+                <span
+                  class="msg-erro"
+                  *ngIf="formLogin.get('senha').hasError(erro.tipo) && (formLogin.get('senha').dirty || formLogin.get('senha').touched)"
+                >
+                  {{erro.mensagem}}
+                </span>
+              </ng-container>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Senha</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
+          </ion-col>
 
-<ion-button color="clear" ><p>Esqueceu a senha</p></ion-button>
-<ion-button size="full">LOGIN</ion-button>
-<ion-button  size="full">REGISTRAR</ion-button>
+        </ion-row>
+      </ion-grid>
 
     </ion-card-content>
-    </ion-card>
-  </div>
+    <ion-button >
+   entrar
+   </ion-button>
 
-  </ion-content>
+    <ion-button fill="outline">
+      <ion-item routerLink="/tabs/tab1">
+        voltar
+      </ion-item>
+
+   </ion-button>
+</div>
+
+
+
+
+</form>
+
+</ion-content>

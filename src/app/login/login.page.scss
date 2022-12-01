@@ -1,26 +1,6 @@
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  }
-
-
-p{
-
-  color:black;
-}
-
-ion-content {
-  --background: var(--ion-color-dark);
-}
-
-ion-icon{
-
-  font-size: 25px;
-  margin-left: 20px;
-}
-
-ion-card-title{
-  text-align: center;
+.msg-erro{
+  color:firebrick;
+  font-size: 10px;
+  clear: both;
+  position: relative;
 }
